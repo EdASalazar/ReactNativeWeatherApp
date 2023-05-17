@@ -11,8 +11,8 @@ return (
       <Text style={styles.temp}>6</Text>
       <Text style={styles.feels}>Feels like 5</Text>
       <View style={styles.highLowWrapper}> 
-        <Text styles={styles.highLow}>Hight: 8</Text>
-        <Text styles={styles.highLow}>Low: 6</Text>
+        <Text style={styles.highLow}>Hight: 8</Text>
+        <Text style={styles.highLow}>Low: 6</Text>
       </View>
     </View>
     <View style={styles.bodyWrapper}> 
@@ -64,4 +64,5 @@ const styles = StyleSheet.create({
   },
 
 })
+
 export default CurrentWeather
