@@ -1,63 +1,20 @@
-import React from 'react'
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native'
+import React from "react"
+import { View, StyleSheet, Text } from "react-native"
+import CurrentWeather from "./src/components/CurrentWeather"
 
 const App = () => {
-
-return (
-  <SafeAreaView style={styles.wrapper}>
-    <View style={styles.container}>
-      <Text style={styles.temp}>6</Text>
-      <Text style={styles.feels}>Feels like 5</Text>
-      <View style={styles.highLowWrapper}> 
-        <Text styles={styles.highLow}>Hight: 8</Text>
-        <Text styles={styles.highLow}>Low: 6</Text>
-      </View>
-    </View>
-    <View style={styles.bodyWrapper}> 
-      <Text style={styles.description}>Its Sunny</Text>
-      <Text style={styles.message}>Its perfect t-shirt weather</Text>
-    </View>
-  </SafeAreaView>
-)
-
+  return (
+  <View styles={styles.container}>
+    <CurrentWeather />
+    <Text>Working</Text>
+  </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: 'pink',
-  },
   container: {
     flex: 1,
-    alignItems: 'center',
-    // may remove 
-    justifyContent: 'center'
-  },
-  temp: {
-    color: "black",
-    fontSize: 48,
-  },
-  feels: {
-    color: 'black',
-    fontSize: 30,
-  },
-  highLowWrapper: {
-  flexDirection: 'row',
-  },
-  highLow: {
-    color: 'black',
-    fontSize: 30
-  },
-  bodyWrapper: {
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
-  },
-  description: {
-    fontSize: 48,
-  },
-  message: {
-    fontSize: 30,
-  },
-
+  }
 })
+
 export default App
