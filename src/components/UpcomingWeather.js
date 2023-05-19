@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, Text, FlatList, View } from "react-native";
+import { StyleSheet, SafeAreaView, Text, FlatList, View, StatusBar } from "react-native";
 import { Feather } from '@expo/vector-icons'
 
 
@@ -45,22 +45,22 @@ const DATA = [
 const Item = (props) => {
   const { dt_txt, min, max, condition } = props
   return (
-    <View>
-      <Feather name={'sun'} size={50} color={'white'}/>
-      <Text>{dt_txt}</Text>
-      <Text>{min}</Text>
-      <Text>{max}</Text>
+    <View style={styles.item}>
+      <Feather name={'sun'} size={50} color={'white'} />
+      <Text style={styles.date}>{dt_txt}</Text>
+      <Text style={styles.temp}>{min}</Text>
+      <Text style={styles.temp}>{max}</Text>
     </View>
   )
 }
 
 const UpcomingWeather = () => {
   const renderItem = ({ item }) => (
-    <Item 
-      condition={item.weather[0].main} 
-      dt_txt={item.dt_txt} 
-      min={item.main.temp_min} 
-      max={item.main.temp_max} 
+    <Item
+      condition={item.weather[0].main}
+      dt_txt={item.dt_txt}
+      min={item.main.temp_min}
+      max={item.main.temp_max}
     />
   )
   return (
@@ -69,6 +69,7 @@ const UpcomingWeather = () => {
       <FlatList
         data={DATA}
         renderItem={renderItem}
+        keyExtractor={(item) => item.dt_txt}
       />
     </SafeAreaView>
   )
@@ -76,7 +77,28 @@ const UpcomingWeather = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: 'red',
+  },
+  item: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 5,
+    backgroundColor: 'pink'
+  },
+  temp: {
+    color: 'white',
+    fontSize: 20,
+    padding: 10,
+  },
+  date: {
+    color: 'white',
+    fontSize: 50,
+    paddingLeft: 5,
   }
 })
 
