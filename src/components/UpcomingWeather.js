@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons'
 
 const DATA = [
   {
-    dt_text: "2023",
+    dt_txt: "2023",
     main: {
       temp_max: 90,
       temp_min: 68,
@@ -17,7 +17,7 @@ const DATA = [
     ]
   },
   {
-    dt_text: "2024",
+    dt_txt: "2024",
     main: {
       temp_max: 40,
       temp_min: 28,
@@ -29,7 +29,7 @@ const DATA = [
     ]
   },
   {
-    dt_text: "2025",
+    dt_txt: "2025",
     main: {
       temp_max: 190,
       temp_min: 98,
@@ -47,7 +47,7 @@ const Item = (props) => {
   return (
     <View>
       <Feather name={'sun'} size={50} color={'white'}/>
-      <Text>{dt_text}</Text>
+      <Text>{dt_txt}</Text>
       <Text>{min}</Text>
       <Text>{max}</Text>
     </View>
@@ -58,9 +58,9 @@ const UpcomingWeather = () => {
   const renderItem = ({ item }) => (
     <Item 
       condition={item.weather[0].main} 
-      dt_text={item.dt_text} 
+      dt_txt={item.dt_txt} 
       min={item.main.temp_min} 
-      max={item.main.teamp_max} 
+      max={item.main.temp_max} 
     />
   )
   return (
